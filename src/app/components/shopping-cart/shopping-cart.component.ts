@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { CartService } from '../../services/cart.service';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../services/cart.service';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -12,15 +13,15 @@ import { CommonModule } from '@angular/common';
 export class ShoppingCartComponent {
   constructor(public cartService: CartService) {}
 
-  removeFromCart(product: any) {
+  removeItem(product: Product): void {
     this.cartService.removeFromCart(product);
   }
 
-  increaseQuantity(product: any) {
+  increaseQuantity(product: Product): void {
     this.cartService.increaseQuantity(product);
   }
 
-  decreaseQuantity(product: any) {
+  decreaseQuantity(product: Product): void {
     this.cartService.decreaseQuantity(product);
   }
 }

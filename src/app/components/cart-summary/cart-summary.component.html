@@ -1,4 +1,5 @@
-<h2>Cart Summary</h2>
-<p>Subtotal: ${{ cartService.getSubtotal().toFixed(2) }}</p>
-<p>Tax (13%): ${{ cartService.getTax().toFixed(2) }}</p>
-<p><strong>Total: ${{ cartService.getTotal().toFixed(2) }}</strong></p>
+<div class="summary-box" *ngIf="cartService.getCart().length > 0">
+  <p>Sub Total: {{ cartService.getSubtotal().toFixed(2) }}</p>
+  <p>Tax 13%: {{ cartService.getTax().toFixed(2) }}</p>
+  <p><strong>Total: {{ cartService.getTotal().toFixed(2) }}</strong></p>
+</div>
