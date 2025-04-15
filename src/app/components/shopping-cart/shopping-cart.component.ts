@@ -1,16 +1,26 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { CartService } from '../../services/cart.service';
 import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-shopping-cart',
+  standalone: true,
+  imports: [],
   templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css'],
-  standalone: true
+  styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent {
-  @Input() cart: Product[] = [];
+  constructor(public cartService: CartService) {}
 
-  getTotal(): number {
-    return this.cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+  removeItem(product: Product) {
+    this.cartService.removeFromCart(product);
+  }
+
+  increaseQuantity(product: Product) {
+    this.cartService.increaseQuantity(product);
+  }
+
+  decreaseQuantity(product: Product) {
+    this.cartService.decreaseQuantity(product);
   }
 }

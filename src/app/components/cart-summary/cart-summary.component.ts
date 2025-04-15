@@ -1,12 +1,13 @@
-import { Component, Input } from '@angular/core';
-import { Product } from '../../models/product';
+import { Component } from '@angular/core';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart-summary',
+  standalone: true,
+  imports: [],
   templateUrl: './cart-summary.component.html',
-  styleUrls: ['./cart-summary.component.css'],
-  standalone: true
+  styleUrls: ['./cart-summary.component.css']
 })
 export class CartSummaryComponent {
-  @Input() cart: Product[] = [];
+  constructor(public cartService: CartService) {}
 }

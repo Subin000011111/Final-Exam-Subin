@@ -1,5 +1,9 @@
 <h2>Shopping Cart</h2>
-<div *ngFor="let item of cart">
-  <p>{{ item.name }} (x{{ item.quantity }}) - ${{ item.price * item.quantity }}</p>
-</div>
-<p><strong>Total:</strong> ${{ getTotal() }}</p>
+<ul>
+  <li *ngFor="let item of cartService.getCart()">
+    {{ item.name }} - ${{ item.price }} x {{ item.quantity }}
+    <button (click)="decreaseQuantity(item)">-</button>
+    <button (click)="increaseQuantity(item)">+</button>
+    <button (click)="removeItem(item)">Remove</button>
+  </li>
+</ul>

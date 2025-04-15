@@ -1,4 +1,4 @@
-<h3>Cart Summary</h3>
-<div *ngFor="let item of cart">
-  {{ item.name }} x {{ item.quantity }}
-</div>
+<h2>Cart Summary</h2>
+<p>Subtotal: ${{ cartService.getSubtotal().toFixed(2) }}</p>
+<p>Tax (13%): ${{ cartService.getTax().toFixed(2) }}</p>
+<p><strong>Total: ${{ cartService.getTotal().toFixed(2) }}</strong></p>
