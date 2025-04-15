@@ -4,7 +4,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 
 export const routes: Routes = [
-  { path: '', component: ProductListComponent },
+  { path: '', redirectTo: 'products', pathMatch: 'full' },
+  { path: 'products', component: ProductListComponent },
   { path: 'cart', component: ShoppingCartComponent },
   { path: 'summary', component: CartSummaryComponent }
 ];
