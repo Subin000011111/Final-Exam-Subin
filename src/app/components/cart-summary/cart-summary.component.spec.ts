@@ -1,23 +1,27 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CartService } from '../../services/cart.service';
+import { Product } from '../../models/product';
 
-import { CartSummaryComponent } from './cart-summary.component';
+@Component({
+  selector: 'app-shopping-cart',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './shopping-cart.component.html',
+  styleUrls: ['./shopping-cart.component.css']
+})
+export class ShoppingCartComponent {
+  constructor(public cartService: CartService) {}
 
-describe('CartSummaryComponent', () => {
-  let component: CartSummaryComponent;
-  let fixture: ComponentFixture<CartSummaryComponent>;
+  increase(product: Product) {
+    this.cartService.increaseQuantity(product);
+  }
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [CartSummaryComponent]
-    })
-    .compileComponents();
+  decrease(product: Product) {
+    this.cartService.decreaseQuantity(product);
+  }
 
-    fixture = TestBed.createComponent(CartSummaryComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  removeItem(product: Product) {
+    this.cartService.removeFromCart(product);
+  }
+}
