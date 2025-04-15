@@ -1,7 +1,5 @@
-<h2>Product List</h2>
-<ul>
-  <li *ngFor="let product of products">
-    {{ product.name }} - ${{ product.price }}
-    <button (click)="addToCart(product)">Add to Cart</button>
-  </li>
-</ul>
+<div *ngFor="let product of products" style="margin-bottom: 10px;">
+  <button (click)="addToCart(product)" style="width: 100%; background-color: #3399ff; color: white; padding: 10px; border: none; border-radius: 5px;">
+    {{ product.name }}
+  </button>
+</div>

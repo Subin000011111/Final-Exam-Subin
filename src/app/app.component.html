@@ -1,8 +1,13 @@
-<h1>Point of Sale System</h1>
-<nav>
-  <a routerLink="/products">Product List</a> |
-  <a routerLink="/cart">Shopping Cart</a> |
-  <a routerLink="/summary">Cart Summary</a>
-</nav>
-<hr />
-<router-outlet></router-outlet>
+<h1>Simple Point Of Sales</h1>
+<div style="display: flex; border: 5px solid #3399ff; margin: 20px;">
+  <div style="flex: 1; background-color: #cce6ff; padding: 20px; border-right: 3px solid #3399ff;">
+    <h2>Product List</h2>
+    <router-outlet name="left"></router-outlet>
+  </div>
+  <div style="flex: 3; background-color: #e6f2ff; padding: 20px;">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<div style="background-color: #cce6ff; padding: 10px; font-weight: bold; text-align: center; border-top: 5px solid #3399ff;">
+  Student Name: Subin Samuel, Student ID: 991753006
+</div>
