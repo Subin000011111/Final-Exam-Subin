@@ -1,26 +1,26 @@
 import { Component } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { Product } from '../../models/product';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-shopping-cart',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent {
   constructor(public cartService: CartService) {}
 
-  removeItem(product: Product) {
+  removeFromCart(product: any) {
     this.cartService.removeFromCart(product);
   }
 
-  increaseQuantity(product: Product) {
+  increaseQuantity(product: any) {
     this.cartService.increaseQuantity(product);
   }
 
-  decreaseQuantity(product: Product) {
+  decreaseQuantity(product: any) {
     this.cartService.decreaseQuantity(product);
   }
 }
