@@ -1,11 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-shopping-cart',
-  imports: [],
   templateUrl: './shopping-cart.component.html',
-  styleUrl: './shopping-cart.component.css'
+  styleUrls: ['./shopping-cart.component.css'],
+  standalone: true
 })
 export class ShoppingCartComponent {
+  @Input() cart: Product[] = [];
 
+  getTotal(): number {
+    return this.cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+  }
 }

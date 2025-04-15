@@ -1,1 +1,4 @@
-<p>cart-summary works!</p>
+<h3>Cart Summary</h3>
+<div *ngFor="let item of cart">
+  {{ item.name }} x {{ item.quantity }}
+</div>
